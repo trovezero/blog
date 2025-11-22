@@ -50,6 +50,8 @@ Trove Zero is designed to navigate the nuances of the Liquity V2 state.
 
 - **Set It and Forget It:** Eliminate the need for manual calculations and constant monitoring.
 
+- **Full Transparency**: Opt in to free email notifications whenever the bot adjusts your rate, ensuring you are always in the loop without being glued to the screen.
+
 - **Fair Pricing:** We charge a 0.25% management fee on the loan, designed to be offset by the interest savings and reduced gas costs of manual management.
 
 ### Quick Start
