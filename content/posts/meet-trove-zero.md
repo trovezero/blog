@@ -32,7 +32,7 @@ Trove Zero is designed to navigate the nuances of the Liquity V2 state.
 
   - If you drift into the risky zone: It jumps to the upper end of the band to rebuild protection quickly.
 
-  -  If you drift into the "too safe" zone: It adjusts your rate to the mid-point of the band, optimizing your APR without cutting it too close.
+  -  If you drift into the "overly safe" zone: It adjusts your rate to the mid-point of the band, optimizing your APR without cutting it too close.
 
 - **Asymmetric Reaction:** The bot distinguishes between rising and falling risk.
 
