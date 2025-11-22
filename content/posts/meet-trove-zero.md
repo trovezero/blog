@@ -5,7 +5,7 @@ date = "2025-11-21"
 +++
 
 
-Liquity V2 is a masterpiece of DeFi engineering. By allowing users to set their own interest rates, it creates a truly permissionless market. However, this freedom introduces a new optimization challenge: balancing your interest rate against redemption risk.
+Liquity V2 is a masterpiece of DeFi engineering. By allowing users to set their own interest rates, it creates a truly novel permissionless protocol. However, this freedom introduces a new optimization challenge: balancing your interest rate against redemption risk.
 
 Since redemptions hit the cheapest loans first, the goal is to stay just above the riskiest borrowers to maintain your loan, without overpaying interest.
 
