@@ -20,7 +20,7 @@ Managing this balance manually is tedious and often inefficient.
 - **The Result:** Manual management often leads to "set and forget" strategies that are rarely optimal, resulting in either wasted interest or unexpected redemption.
 ### Enter Trove Zero
 
-Trove Zero is an automated interest rate manager. You delegate your loan’s interest rate to our bot, and it keeps you positioned in the optimal zone, safe enough to minimize redemption risk, but efficient enough to preserve your yield.
+Trove Zero is an automated interest rate manager. You delegate your loan’s interest rate to our bot, and it keeps you positioned in the optimal zone, safe enough to minimize redemption risk, but efficient enough to preserve your money.
 
 ### How Trove Zero Works
 
