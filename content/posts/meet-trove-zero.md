@@ -26,7 +26,7 @@ Trove Zero is an automated interest rate manager. You delegate your loan’s int
 
 Trove Zero is designed to navigate the nuances of the Liquity V2 state.
 
-- **Collateral-Aware Intelligence:** The bot analyzes the entire state of the protocol. Even if you have very little debt "ahead" of you in your specific wstETH pool, you may still be safe if there is a significant amount of cheap debt in the ETH or rETH pools. Trove Zero accounts for this cross-collateral depth to keep your rate lower for longer.
+- **Collateral-Aware Intelligence:** The bot analyzes the entire state of the protocol. Even if you have very little debt "ahead" of you for your specific e.g. wstETH trove, you may still be safe if there is a significant amount of cheap debt in the ETH or rETH branches. Trove Zero accounts for this cross-collateral depth to keep your rate lower for longer.
 
 - **Smart Band Positioning:** The bot targets a specific "debt ahead" comfort zone.
 
