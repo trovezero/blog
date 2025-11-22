@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+    
+    <title>
+        Maximize Your Liquity V2 Efficiency: Meet Trove Zero
+    </title>
+    
+
+    
+    
+
+    
+    
+        <link href=https://blog.trovezero.xyz/fonts.css rel="stylesheet" />
+    
+        <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+
+    
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://blog.trovezero.xyz/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" type="text/css" href="https://blog.trovezero.xyz/theme/light.css"/>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://blog.trovezero.xyz/main.css />
+
+
+    
+        
+            <link rel="stylesheet" href="https://blog.trovezero.xyz/custom.css">
+        
+    
+</head>
+
+<body>
+    <div class="content">
+        <header>
+  <nav class="tz-nav">
+    <div class="tz-nav-shell">
+      <div class="tz-nav-row">
+        <div class="tz-nav-top">
+          <div class="brand">
+            <span class="brand-title">Credit Agents</span>
+            <span class="brand-pill">by trove<span class="mono-zero">0</span></span>
+          </div>
+
+          <button id="tz-menu-button" class="menu-toggle" aria-label="Toggle navigation">
+            <svg class="w-6 h-6" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <ul id="tz-mobile-menu" class="menu">
+          <li>
+            <a href="https://trovezero.xyz#howitworks" class="nav-link" title="How it works">How it works</a>
+          </li>
+          <li>
+            <a href="https://trovezero.xyz#deployments" class="nav-link" title="Deployments">Deployments</a>
+          </li>
+          <li>
+            <a href="https://dune.com/trovezero/liquity-dashboard" class="nav-link" title="Dune Dashboard">Dune Dashboard</a>
+          </li>
+          <li>
+            <a href="https:&#x2F;&#x2F;blog.trovezero.xyz" class="nav-link active" title="Blog">Blog</a>
+          </li>
+          <li>
+            <a href="https://trovezero.xyz#faq" class="nav-link" title="FAQ">FAQ</a>
+          </li>
+          <li>
+            <a href="https://trovezero.xyz/notifications" class="nav-link" title="Email Notifications">Email notifications</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script>
+    (function() {
+      const btn = document.getElementById('tz-menu-button');
+      const menu = document.getElementById('tz-mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        menu.classList.toggle('open');
+      });
+    })();
+  </script>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        Maximize Your Liquity V2 Efficiency: Meet Trove Zero<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+            
+                <div class="meta">
+                    Posted on 2025-11-21
+
+                    
+                </div>
+            
+        </div>
+
+        
+
+        
+        
+
+        <section class="body">
+            <p>Liquity V2 is a masterpiece of DeFi engineering. By allowing users to set their own interest rates, it creates a truly novel permissionless protocol. However, this freedom introduces a new optimization challenge: balancing your interest rate against redemption risk.</p>
+<p>Since redemptions hit the cheapest loans first, the goal is to stay just above the riskiest borrowers to maintain your loan, without overpaying interest.</p>
+<h3 id="the-challenge-the-difficulty-of-manual-optimization">The Challenge: The Difficulty of Manual Optimization</h3>
+<p>Managing this balance manually is tedious and often inefficient.</p>
+<ul>
+<li>
+<p><strong>The Cost of Tinkering:</strong> Liquity’s mechanics discourage constant updates. Adjusting your rate manually within the 7-day window incurs extra costs, meaning a miscalculation can be expensive to fix immediately.</p>
+</li>
+<li>
+<p><strong>The Trade-off:</strong> If you are too conservative, you overpay APR unnecessarily. If you are too aggressive, you risk redemption and losing your loan exposure.</p>
+</li>
+<li>
+<p><strong>The Result:</strong> Manual management often leads to &quot;set and forget&quot; strategies that are rarely optimal, resulting in either wasted interest or unexpected redemption.</p>
+</li>
+</ul>
+<h3 id="enter-trove-zero">Enter Trove Zero</h3>
+<p>Trove Zero is an automated interest rate manager. You delegate your loan’s interest rate to our bot, and it keeps you positioned in the optimal zone, safe enough to minimize redemption risk, but efficient enough to preserve your money.</p>
+<h3 id="how-trove-zero-works">How Trove Zero Works</h3>
+<p>Trove Zero is designed to navigate the nuances of the Liquity V2 state.</p>
+<ul>
+<li>
+<p><strong>Collateral-Aware Intelligence:</strong> The bot analyzes the entire state of the protocol. Even if you have very little debt &quot;ahead&quot; of you for your specific e.g. wstETH trove, you may still be safe if there is a significant amount of cheap debt in the ETH or rETH branches. Trove Zero accounts for this cross-collateral depth to keep your rate lower for longer.</p>
+</li>
+<li>
+<p><strong>Smart Band Positioning:</strong> The bot targets a specific &quot;debt ahead&quot; comfort zone.</p>
+<ul>
+<li>
+<p>If you drift into the risky zone: It jumps to the upper end of the band to rebuild protection quickly.</p>
+</li>
+<li>
+<p>If you drift into the &quot;overly safe&quot; zone: It adjusts your rate to the mid-point of the band, optimizing your APR without cutting it too close.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Asymmetric Reaction:</strong> The bot distinguishes between rising and falling risk.</p>
+<ul>
+<li>
+<p>On the way up (Risk Increases): It ignores cooldowns (using the grace period) and reacts quickly to maintain your position.</p>
+</li>
+<li>
+<p>On the way down (Risk Decreases): It waits through grace periods and cooldowns to prevent oscillation</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Non-Custodial Security:</strong> We can only adjust the interest rate. We can never touch your collateral or withdraw your funds.</p>
+</li>
+</ul>
+<h3 id="why-use-trove-zero">Why Use Trove Zero?</h3>
+<ul>
+<li>
+<p><strong>Redemption Protection:</strong> We keep your loan positioned above the dangerous zone, preserving your position.</p>
+</li>
+<li>
+<p><strong>Better Realized APR:</strong> Avoid overpaying during calm market periods. We tighten your rate automatically when risk subsides.</p>
+</li>
+<li>
+<p><strong>Set It and Forget It:</strong> Eliminate the need for manual calculations and constant monitoring.</p>
+</li>
+<li>
+<p><strong>Full Transparency</strong>: Opt in to free email notifications whenever the bot adjusts your rate, ensuring you are always in the loop without being glued to the screen.</p>
+</li>
+<li>
+<p><strong>Fair Pricing:</strong> We charge a 0.25% management fee on the loan, designed to be offset by the interest savings and reduced gas costs of manual management.</p>
+</li>
+</ul>
+<h3 id="quick-start">Quick Start</h3>
+<ol>
+<li>
+<p>Open your Liquity V2 loan on any supported frontend or directly at <a href="https://app.trovezero.xyz">app.trovezero.xyz</a>.</p>
+</li>
+<li>
+<p>Select &quot;Delegated&quot; and choose Trove Zero as your delegate.</p>
+</li>
+<li>
+<p>Let the bot handle the optimization for you.</p>
+</li>
+</ol>
+
+        </section>
+
+        
+
+    </article>
+</main>
+
+
+    </div>
+</body>
+
+</html>
