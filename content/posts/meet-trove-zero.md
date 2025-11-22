@@ -38,13 +38,14 @@ Trove Zero is designed to navigate the nuances of the Liquity V2 state.
 
   - On the way up (Risk Increases): It ignores cooldowns (using the grace period) and reacts quickly to maintain your position.
 
-  - On the way down (Risk Decreases): It waits through grace periods and cooldowns to prevent oscillation—saving you gas and preventing rate whipsawing.
+  - On the way down (Risk Decreases): It waits through grace periods and cooldowns to prevent oscillation
 
 - **Non-Custodial Security:** We can only adjust the interest rate. We can never touch your collateral or withdraw your funds.
 
 ### Why Use Trove Zero?
 
-- **Redemption Protection:** We keep your loan positioned above the immediate redemption zone, preserving your ETH exposure.
+- **Redemption Protection:** We keep your loan positioned above the dangerous zone, preserving your position.
+
 - **Better Realized APR:** Avoid overpaying during calm market periods. We tighten your rate automatically when risk subsides.
 
 - **Set It and Forget It:** Eliminate the need for manual calculations and constant monitoring.
