@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+    
+    <title>
+        Why &#x27;Debt Ahead&#x27; isn&#x27;t enough: How we improved redemption protection
+    </title>
+    
+
+    
+    
+
+    
+    
+        <link href=https://blog.trovezero.xyz/fonts.css rel="stylesheet" />
+    
+        <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+
+    
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://blog.trovezero.xyz/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" type="text/css" href="https://blog.trovezero.xyz/theme/light.css"/>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://blog.trovezero.xyz/main.css />
+
+
+    
+        
+            <link rel="stylesheet" href="https://blog.trovezero.xyz/custom.css">
+        
+    
+</head>
+
+<body>
+    <div class="content">
+        <header>
+  <nav class="tz-nav">
+    <div class="tz-nav-shell">
+      <div class="tz-nav-row">
+        <div class="tz-nav-top">
+          <div class="brand">
+            <span class="brand-title">Credit Agents</span>
+            <span class="brand-pill">by trove<span class="mono-zero">0</span></span>
+          </div>
+
+          <button id="tz-menu-button" class="menu-toggle" aria-label="Toggle navigation">
+            <svg class="w-6 h-6" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <ul id="tz-mobile-menu" class="menu">
+          <li>
+            <a href="https://trovezero.xyz#howitworks" class="nav-link" title="How it works">How it works</a>
+          </li>
+          <li>
+            <a href="https://trovezero.xyz#deployments" class="nav-link" title="Deployments">Deployments</a>
+          </li>
+          <li>
+            <a href="https://dune.com/trovezero/liquity-dashboard" class="nav-link" title="Dune Dashboard">Dune Dashboard</a>
+          </li>
+          <li>
+            <a href="https:&#x2F;&#x2F;blog.trovezero.xyz" class="nav-link active" title="Blog">Blog</a>
+          </li>
+          <li>
+            <a href="https://trovezero.xyz#faq" class="nav-link" title="FAQ">FAQ</a>
+          </li>
+          <li>
+            <a href="https://trovezero.xyz/notifications" class="nav-link" title="Email Notifications">Email notifications</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script>
+    (function() {
+      const btn = document.getElementById('tz-menu-button');
+      const menu = document.getElementById('tz-mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        menu.classList.toggle('open');
+      });
+    })();
+  </script>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        Why &#x27;Debt Ahead&#x27; isn&#x27;t enough: How we improved redemption protection<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+            
+                <div class="meta">
+                    Posted on 2026-03-14
+
+                    
+                </div>
+            
+        </div>
+
+        
+
+        
+        
+
+        <section class="body">
+            <p>At Trove Zero, our core promise is simple: we keep your Liquity V2 loan safe from redemption while minimizing the interest rate you pay. The bot continuously monitors the protocol state and positions your trove so there's enough "protective debt" ahead of you. Debt that would need to be redeemed before yours gets touched.</p>
+<p>It worked. Until it didn't. A while ago several troves managed by Trove Zero on the wstETH branch were partially redeemed. According to our logs, the bot had calculated millions of BOLD debt sitting ahead of our troves, a comfortable buffer by any measure. Yet a redemption of just ~220,000 BOLD was enough to reach our position.</p>
+<p>How is that possible?</p>
+<h3 id="the-investigation">The Investigation</h3>
+<p>We dug into the on-chain data and traced the redemption block by block. What we found was surprising: the millions of BOLD "buffer" consisted of a <strong>single external trove</strong>. One borrower, sitting just below our interest rate, with a massive position.</p>
+<p>Between two of the bot's monitoring cycles (only minutes apart), that borrower raised their interest rate above ours. In a single transaction, our 9 million buffer collapsed to essentially zero. The redemption that followed had no debt to work through before hitting our troves.</p>
+<p>The bot's calculation wasn't wrong, at the time it checked, everything looked very healthy. But that buffer was <em>fragile</em>. It depended entirely on one actor's decision.</p>
+<h3 id="the-problem-with-raw-debt-ahead">The Problem with Raw "Debt Ahead"</h3>
+<p>The original approach treated all debt below our rate equally. Whether the buffer consisted of 100 small independent troves or a single whale position, the bot saw the same number and drew the same conclusion: "we're safe."</p>
+<p>But these two scenarios have fundamentally different risk profiles:</p>
+<ul>
+<li>
+<p><strong>100 troves × 90,000 BOLD each</strong>: For the buffer to disappear, all 100 borrowers would need to independently raise their rates above ours. Extremely unlikely to happen simultaneously.</p>
+</li>
+<li>
+<p><strong>1 trove × 9,000,000 BOLD</strong>: One rate adjustment by one borrower, and the entire buffer vanishes.</p>
+</li>
+</ul>
+<p>A buffer of 9 million from 100 troves is robust. A buffer of 9 million from just 1 trove is risky.</p>
+<h3 id="the-fix-buffer-concentration-caps">The Fix: Buffer Concentration Caps</h3>
+<p>We've introduced a per-trove cap on how much any single position can contribute to the perceived buffer. No individual trove may account for more than 35% of the target buffer amount.</p>
+<p>Here's the effect with current mainnet numbers for wstETH:</p>
+<ul>
+<li><strong>Before</strong>: The whale trove contributed its full ~5.7M BOLD to the buffer → bot reported a healthy buffer → <code>RateOk</code></li>
+<li><strong>After</strong>: The whale's contribution is capped at ~2M BOLD → bot correctly detects insufficient robust buffer → raises the rate to build diversified protection</li>
+</ul>
+<p>The cap only activates when there are at least 3 troves in the branch. In thin markets with very few participants, we fall back to the uncapped calculation, since diversification simply isn't possible.</p>
+<h3 id="smarter-emergency-response">Smarter Emergency Response</h3>
+<p>The cap also revealed a secondary issue in our emergency logic. When the buffer drops below the minimum threshold, the bot previously jumped to an aggressive target (the upper band of the comfort zone). With the cap reducing perceived buffer sizes, this aggressive target became unreasonably high — it would have pushed interest rates well beyond market norms.</p>
+<p>We've recalibrated the emergency target to the 3/4 point between the mid and max bands. This provides a meaningful safety boost during emergencies without overshooting into absurd territory.</p>
+<h3 id="what-this-means-for-you">What This Means for You</h3>
+<p>If you're a Trove Zero user, you don't need to do anything. The updated bot will:</p>
+<ol>
+<li><strong>Detect fragile buffers</strong> that depend on a small number of large positions</li>
+<li><strong>Proactively adjust your rate</strong> to build protection from many independent troves rather than relying on a single whale</li>
+<li><strong>React proportionally</strong> during emergencies, targeting realistic rate levels</li>
+</ol>
+<p>The trade-off is that in some market conditions, the bot may set a slightly higher interest rate than before. But this reflects the true cost of reliable redemption protection — not the illusory safety of a concentrated buffer.</p>
+<h3 id="lessons-learned">Lessons Learned</h3>
+<p>Building a rate optimization bot for a novel protocol is an exercise in discovering edge cases. The math can be correct while the assumptions are wrong. In our case, summing up debt was arithmetically sound but failed to capture a critical dimension: how that debt was distributed.</p>
+<p>We're continuing to improve Trove Zero's risk assessment and will keep sharing what we learn along the way.</p>
+
+        </section>
+
+        
+
+    </article>
+</main>
+
+
+    </div>
+</body>
+
+</html>
