@@ -6,7 +6,7 @@ date = "2026-03-14"
 
 At Trove Zero, our core promise is simple: we keep your Liquity V2 loan safe from redemption while minimizing the interest rate you pay. The bot continuously monitors the protocol state and positions your trove so there's enough "protective debt" ahead of you. Debt that would need to be redeemed before yours gets touched.
 
-It worked. Until it didn't. A while ago several troves managed by Trove Zero on the wstETH branch were partially redeemed. According to our logs, the bot had calculated roughly millions of BOLD debt sitting ahead of our troves, a comfortable buffer by any measure. Yet a redemption of just ~220,000 BOLD was enough to reach our position.
+It worked. Until it didn't. A while ago several troves managed by Trove Zero on the wstETH branch were partially redeemed. According to our logs, the bot had calculated millions of BOLD debt sitting ahead of our troves, a comfortable buffer by any measure. Yet a redemption of just ~220,000 BOLD was enough to reach our position.
 
 How is that possible?
 
